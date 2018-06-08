@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700" rel="stylesheet">
     <title>SNOW Connector</title>
 </head>
 
 <body>
+  <script>function configureFin(ipAddress){
+  $('#ctiframe').attr("src","https://snow-sforce.herokuapp.com/?stuff=stuff")
+  $('#ctibutton').hide();
+  $('#myModal').modal('toggle');
+  $('#ctiwindow').show();
+}</script>
     <header>
         <a class="logo-link" title="cloverhound" href="https://cloverhound.com">
             <img class="logo" src="./assets/logo_100.png" alt="logo">
@@ -37,6 +53,30 @@
             </ul>
         </nav>
     </header>
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Configure CTI Demo</h4>
+      </div>
+      <div class="modal-body">
+        <p>Please enter the IP Address of an 11.5 Finesse server or above which is currently reachable from your desktop.</p>
+        <div class="form-group">
+  <label for="usr">Finesse Server IP:</label>
+  <input type="text" class="form-control" id="fin_ip">
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" style="background-color:#0C9;color:#fff" onClick="configureFin()" class="btn">Finish Adding CTI Controls</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     <section class="title">
         <div class="hero">
 
@@ -49,9 +89,9 @@
 
 
     <div class="quote">
-        <h5>Seamless Integration.</h5>
+        <h5>Seamless Integration</h5>
         <p class="sub-heading">
-            Our plugin enables agents to control Cisco Finesse within their ServiceNow.
+            Our plugin enables CTI integration of Cisco Finesse into any web application. Use it in ServiceNow, SalesForce.com or embed it within your own app.
         </p>
     </div>
 
@@ -77,7 +117,13 @@
             <img id="plugin-image" src="assets/plugin.png" alt="plugin">
         </div>
     </section>
-
+   <section><div id="ctiwindow" style="display:none"><div style="height:40px;width:350px;background-color:#0c9;bottom:400px;position:fixed;right:5"><i style="top:12px;right:10px;position:absolute;color:white" class="fa fa-minus"></i></div><div style="bottom:0;position:fixed">
+     <iframe id="ctiframe" style=";background-color:#fff; bottom:0; overflow:hidden;position: fixed;right:5" frameBorder="1" src="https://snow-sforce.herokuapp.com/" height="400" width="350"></iframe></div></div>
+      <div id="ctibutton"><h3 style="height:70px; bottom:0; overflow:hidden; right: 135px; position: fixed; font-size:22">Add CTI to this page</h3><i style="height:74px; bottom:0; overflow:hidden; right: 115px; position: fixed;" class="fa fa-arrow-right"></i>
+      <a href="#" data-toggle="modal" data-target="#myModal" class="float">
+<i class="fa fa-plus my-float"></i>
+</a></div>
+   </section>
 
     <!-- <footer>
 
