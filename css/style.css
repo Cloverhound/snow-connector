@@ -241,7 +241,8 @@ a.footer-link {
   list-style-type: none;
 }
 
-.float{
+.float, .float:hover, .float:visited{
+  color: white;
 	position:fixed;
 	width:60px;
 	height:60px;

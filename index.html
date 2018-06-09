@@ -10,7 +10,6 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,700" rel="stylesheet">
@@ -21,11 +20,27 @@
 </head>
 
 <body>
-  <script>function configureFin(ipAddress){
-  $('#ctiframe').attr("src","https://snow-sforce.herokuapp.com/?stuff=stuff")
+  <script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+  function configureFin(ipAddress){
+  $('#ctiframe').attr("src","https://snow-sforce.herokuapp.com/?finesseUrl=https://"+$('#fin_ip').val()+':8445/')
   $('#ctibutton').hide();
   $('#myModal').modal('toggle');
   $('#ctiwindow').show();
+}
+
+function minimizeCTI(){
+$('#ctiwindow').hide();
+$('#ctiphone').show();
+return false;
+}
+
+function maximizeCTI(){
+$('#ctiwindow').show();
+$('#ctiphone').hide();
+return false;
 }</script>
     <header>
         <a class="logo-link" title="cloverhound" href="https://cloverhound.com">
@@ -117,11 +132,13 @@
             <img id="plugin-image" src="assets/plugin.png" alt="plugin">
         </div>
     </section>
-   <section><div id="ctiwindow" style="display:none"><div style="height:40px;width:350px;background-color:#0c9;bottom:400px;position:fixed;right:5"><i style="top:12px;right:10px;position:absolute;color:white" class="fa fa-minus"></i></div><div style="bottom:0;position:fixed">
+   <section><div id="ctiwindow" style="display:none"><div style="height:40px;width:350px;background-color:#0c9;bottom:400px;position:fixed;right:5"><a href="#" onClick="return minimizeCTI();"><i style="top:12px;right:10px;position:absolute;color:white" data-toggle="tooltip" title="Minimize Phone" class="fa fa-minus"></i></a></div><div style="bottom:0;position:fixed">
      <iframe id="ctiframe" style=";background-color:#fff; bottom:0; overflow:hidden;position: fixed;right:5" frameBorder="1" src="https://snow-sforce.herokuapp.com/" height="400" width="350"></iframe></div></div>
       <div id="ctibutton"><h3 style="height:70px; bottom:0; overflow:hidden; right: 135px; position: fixed; font-size:22">Add CTI to this page</h3><i style="height:74px; bottom:0; overflow:hidden; right: 115px; position: fixed;" class="fa fa-arrow-right"></i>
       <a href="#" data-toggle="modal" data-target="#myModal" class="float">
 <i class="fa fa-plus my-float"></i>
+</a></div><div id="ctiphone" style="display:none"><a href="#" data-toggle="tooltip" title="Maximize Phone" onclick="return maximizeCTI();" class="float">
+<i class="fa fa-phone my-float fa-1x"></i>
 </a></div>
    </section>
 
